@@ -1,0 +1,13 @@
+name: mercadoshop
+
+# La base de datos ya no se crea en Docker.
+# Si en el futuro se agrega un servicio a este compose, reutiliza este bloque
+# para conectarlo al MySQL local del host.
+x-local-database-env: &local-database-env
+  DB_HOST: 127.0.0.1
+  DB_PORT: "8080"
+  DB_USER: ${DB_USER:-root}
+  DB_PASSWORD: ${DB_PASSWORD:-}
+  DB_NAME: ${DB_NAME:-mercadoshop}
+
+services: {}
