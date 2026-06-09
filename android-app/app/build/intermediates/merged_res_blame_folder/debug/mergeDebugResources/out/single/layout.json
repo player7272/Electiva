@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.tuuniversidad.ecosistema.app-mergeDebugResources-28:/layout/activity_checkout.xml",
+        "source": "com.tuuniversidad.ecosistema.app-main-31:/layout/activity_checkout.xml"
+    },
+    {
+        "merged": "com.tuuniversidad.ecosistema.app-mergeDebugResources-28:/layout/item_carrito.xml",
+        "source": "com.tuuniversidad.ecosistema.app-main-31:/layout/item_carrito.xml"
+    },
+    {
+        "merged": "com.tuuniversidad.ecosistema.app-mergeDebugResources-28:/layout/activity_cart.xml",
+        "source": "com.tuuniversidad.ecosistema.app-main-31:/layout/activity_cart.xml"
+    },
+    {
+        "merged": "com.tuuniversidad.ecosistema.app-mergeDebugResources-28:/layout/item_producto.xml",
+        "source": "com.tuuniversidad.ecosistema.app-main-31:/layout/item_producto.xml"
+    },
+    {
+        "merged": "com.tuuniversidad.ecosistema.app-mergeDebugResources-28:/layout/activity_main.xml",
+        "source": "com.tuuniversidad.ecosistema.app-main-31:/layout/activity_main.xml"
+    }
+]

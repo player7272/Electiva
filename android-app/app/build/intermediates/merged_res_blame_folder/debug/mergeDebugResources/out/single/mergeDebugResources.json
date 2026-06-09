@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-debug-29:\\layout_activity_checkout.xml.flat",
+        "source": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-main-31:\\layout\\activity_checkout.xml"
+    },
+    {
+        "merged": "com.tuuniversidad.ecosistema.app-debug-29:/xml_network_security_config.xml.flat",
+        "source": "com.tuuniversidad.ecosistema.app-main-31:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-debug-29:\\layout_item_producto.xml.flat",
+        "source": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-main-31:\\layout\\item_producto.xml"
+    },
+    {
+        "merged": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-debug-29:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-main-31:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-debug-29:\\layout_item_carrito.xml.flat",
+        "source": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-main-31:\\layout\\item_carrito.xml"
+    },
+    {
+        "merged": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-debug-29:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-main-31:\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-debug-29:\\layout_activity_cart.xml.flat",
+        "source": "C:\\Users\\borja\\.gradle\\daemon\\9.3.0\\com.tuuniversidad.ecosistema.app-main-31:\\layout\\activity_cart.xml"
+    }
+]

@@ -1,0 +1,96 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tuuniversidad.ecosistema"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:4:22-64
+12
+13    <permission
+13-->[androidx.core:core:1.10.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\4e9d35013785523f05fed4c0912663ff\workspace\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+14        android:name="com.tuuniversidad.ecosistema.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.10.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\4e9d35013785523f05fed4c0912663ff\workspace\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.10.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\4e9d35013785523f05fed4c0912663ff\workspace\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.tuuniversidad.ecosistema.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.10.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\4e9d35013785523f05fed4c0912663ff\workspace\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.10.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\4e9d35013785523f05fed4c0912663ff\workspace\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:6:5-28:19
+20        android:allowBackup="true"
+20-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:7:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.10.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\4e9d35013785523f05fed4c0912663ff\workspace\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+22        android:debuggable="true"
+23        android:extractNativeLibs="true"
+24        android:label="Ecosistema"
+24-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:8:9-35
+25        android:networkSecurityConfig="@xml/network_security_config"
+25-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:10:9-69
+26        android:supportsRtl="true"
+26-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:11:9-35
+27        android:testOnly="true"
+28        android:theme="@style/AppTheme" >
+28-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:9:9-40
+29        <activity
+29-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:13:9-15:40
+30            android:name="com.tuuniversidad.ecosistema.controller.CheckoutActivity"
+30-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:14:13-84
+31            android:exported="false" />
+31-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:15:13-37
+32        <activity
+32-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:16:9-18:40
+33            android:name="com.tuuniversidad.ecosistema.controller.CartActivity"
+33-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:17:13-80
+34            android:exported="false" />
+34-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:18:13-37
+35        <activity
+35-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:19:9-26:20
+36            android:name="com.tuuniversidad.ecosistema.controller.MainActivity"
+36-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:20:13-80
+37            android:exported="true" >
+37-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:21:13-36
+38            <intent-filter>
+38-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:22:13-25:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:23:17-69
+39-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:23:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:24:17-77
+41-->C:\Users\borja\Downloads\files\ecosistema-proyecto-completo\proyecto-ecosistema\android-app\app\src\main\AndroidManifest.xml:24:27-74
+42            </intent-filter>
+43        </activity>
+44
+45        <provider
+45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\borja\.gradle\caches\9.3.0\transforms\75cec7cc8b974003454285e21d9fe5d4\workspace\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+46            android:name="androidx.startup.InitializationProvider"
+46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\borja\.gradle\caches\9.3.0\transforms\75cec7cc8b974003454285e21d9fe5d4\workspace\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+47            android:authorities="com.tuuniversidad.ecosistema.androidx-startup"
+47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\borja\.gradle\caches\9.3.0\transforms\75cec7cc8b974003454285e21d9fe5d4\workspace\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+48            android:exported="false" >
+48-->[androidx.emoji2:emoji2:1.2.0] C:\Users\borja\.gradle\caches\9.3.0\transforms\75cec7cc8b974003454285e21d9fe5d4\workspace\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+49            <meta-data
+49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\borja\.gradle\caches\9.3.0\transforms\75cec7cc8b974003454285e21d9fe5d4\workspace\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+50                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\borja\.gradle\caches\9.3.0\transforms\75cec7cc8b974003454285e21d9fe5d4\workspace\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+51                android:value="androidx.startup" />
+51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\borja\.gradle\caches\9.3.0\transforms\75cec7cc8b974003454285e21d9fe5d4\workspace\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+52            <meta-data
+52-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\417c7d4c8578ada3180819316a170097\workspace\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+53                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+53-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\417c7d4c8578ada3180819316a170097\workspace\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+54                android:value="androidx.startup" />
+54-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\borja\.gradle\caches\9.3.0\transforms\417c7d4c8578ada3180819316a170097\workspace\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+55        </provider>
+56    </application>
+57
+58</manifest>
