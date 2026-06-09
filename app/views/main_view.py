@@ -187,11 +187,11 @@ class MainView:
         self._sync_session_controls()
 
     def _sync_session_controls(self):
-        logged_in = self.auth_controller.is_authenticated
+        allowed = self.auth_controller.allowed_sections
         for key in ("dashboard", "inventory", "sales"):
-            self.nav_buttons[key].configure(state="normal" if logged_in else "disabled")
-        self.nav_buttons["login"].configure(state="disabled" if logged_in else "normal")
-        self.logout_button.configure(state="normal" if logged_in else "disabled")
+            self.nav_buttons[key].configure(state="normal" if key in allowed else "disabled")
+        self.nav_buttons["login"].configure(state="disabled" if self.auth_controller.is_authenticated else "normal")
+        self.logout_button.configure(state="normal" if self.auth_controller.is_authenticated else "disabled")
 
     def _require_session(self):
         if self.auth_controller.is_authenticated:
@@ -207,6 +207,9 @@ class MainView:
 
     def show_dashboard(self):
         if not self._require_session():
+            return
+        if "dashboard" not in self.auth_controller.allowed_sections:
+            messagebox.showwarning("MercadoShop", "No tienes permiso para acceder al panel.")
             return
         self._set_active("dashboard")
         self._clear_content()
@@ -316,6 +319,9 @@ class MainView:
     def show_inventory(self):
         if not self._require_session():
             return
+        if "inventory" not in self.auth_controller.allowed_sections:
+            messagebox.showwarning("MercadoShop", "No tienes permiso para acceder a inventario.")
+            return
         self._set_active("inventory")
         self._clear_content()
         self.title_var.set("Inventario")
@@ -329,6 +335,9 @@ class MainView:
 
     def show_sales(self):
         if not self._require_session():
+            return
+        if "sales" not in self.auth_controller.allowed_sections:
+            messagebox.showwarning("MercadoShop", "No tienes permiso para acceder a ventas.")
             return
         self._set_active("sales")
         self._clear_content()
@@ -357,7 +366,16 @@ class MainView:
         self._apply_session_context()
         self._refresh_status()
         messagebox.showinfo("MercadoShop", message)
-        self.show_dashboard()
+        allowed = self.auth_controller.allowed_sections
+        if "dashboard" in allowed:
+            self.show_dashboard()
+        elif "sales" in allowed:
+            self.show_sales()
+        elif "inventory" in allowed:
+            self.show_inventory()
+        else:
+            messagebox.showwarning("MercadoShop", "No tienes acceso asignado a ninguna sección.")
+            self.show_login()
 
     def logout(self):
         if not self.auth_controller.current_user:

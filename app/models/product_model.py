@@ -1,6 +1,11 @@
 from decimal import Decimal
+import os
 
 from models.database import Database
+from api_client import get_api_client
+
+_USE_API = str(os.getenv("USE_API", "0")).lower() in ("1", "true", "yes")
+_API = get_api_client() if _USE_API else None
 
 
 SEED_PRODUCTS = [
@@ -83,6 +88,24 @@ class ProductModel:
             )
 
     def get_all_products(self):
+        if _API:
+            data = _API.get_products(self.store_id)
+            if not data:
+                return []
+            # map API fields to expected normalized format
+            def map_row(r):
+                row = {
+                    "id": r.get("nProductoID") or r.get("id"),
+                    "name": r.get("cDescripcionCorta") or r.get("name"),
+                    "category": r.get("cNombreCategoria") or r.get("category"),
+                    "price": float(r.get("nPrecioUnitario") or r.get("price") or 0),
+                    "stock": int(r.get("nCantidadStock") or r.get("stock") or 0),
+                    "status": "Activo",
+                }
+                return row
+
+            return [map_row(r) for r in data]
+
         if not self.db.ensure_connected():
             return []
 
@@ -96,6 +119,20 @@ class ProductModel:
 
     def get_product(self, product_id):
         product_id = int(product_id)
+        if _API:
+            r = _API.get_product(product_id)
+            if not r:
+                return None
+            mapped = {
+                "id": r.get("nProductoID") or r.get("id"),
+                "name": r.get("cDescripcionCorta") or r.get("name"),
+                "category": r.get("cNombreCategoria") or r.get("category"),
+                "price": float(r.get("nPrecioUnitario") or r.get("price") or 0),
+                "stock": int(r.get("nCantidadStock") or r.get("stock") or 0),
+                "status": "Activo",
+            }
+            return mapped
+
         if not self.db.ensure_connected():
             return None
 
@@ -117,6 +154,19 @@ class ProductModel:
         stock = int(stock or 0)
         if not name or not category:
             return False
+        # If API mode, create product via API (requires worker token)
+        if _API:
+            data = {
+                "nTiendaFK": self._active_store_id(),
+                "cDescripcionCorta": name,
+                "cDescripcionLarga": name,
+                "nCategoriaFK": None,
+                "jEspecificaciones": None,
+                "nPrecioUnitario": price,
+                "nCantidadStock": stock,
+            }
+            ok, resp = _API.create_product(data)
+            return ok
 
         if not self.db.ensure_connected():
             return False
@@ -150,6 +200,14 @@ class ProductModel:
     def adjust_stock(self, product_id, delta):
         product_id = int(product_id)
         delta = int(delta)
+        if _API:
+            # For simplicity, read current product and compute new stock
+            prod = self.get_product(product_id)
+            if not prod:
+                return False
+            new_stock = max(0, int(prod.get("stock", 0)) + delta)
+            ok, resp = _API.update_stock(product_id, new_stock)
+            return ok
 
         if not self.db.ensure_connected():
             return False

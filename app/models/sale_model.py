@@ -3,6 +3,11 @@ from decimal import Decimal
 
 from models.database import Error, Database
 from models.product_model import ProductModel
+import os
+from api_client import get_api_client
+
+_USE_API = str(os.getenv("USE_API", "0")).lower() in ("1", "true", "yes")
+_API = get_api_client() if _USE_API else None
 
 
 APPROVED_PAYMENT_STATES = {
@@ -36,6 +41,18 @@ class SaleModel:
         self.products.set_store_id(self.store_id)
 
     def list_orders(self, limit=50):
+        # If API available and token set, use API to list pedidos (protected)
+        if _API:
+            try:
+                params = {"limit": int(limit)}
+                # API supports 'comprobante' query but not limit param; we reuse limit via client if needed
+                data = _API.get("/api/pedidos")
+                rows = data.get("data") if isinstance(data, dict) else data
+                return [self._normalize(row) for row in rows]
+            except Exception:
+                # fallback to DB
+                pass
+
         if not self.db.ensure_connected():
             return []
 
@@ -143,11 +160,28 @@ class SaleModel:
         return []
 
     def approve_order(self, order_id):
+        # Prefer API call to update estado to 'Pago Confirmado' (ID likely 2)
+        if _API:
+            try:
+                # ID 2 corresponds to 'Pago Confirmado' based on seeded defaults
+                resp = _API.put(f"/api/pedidos/{int(order_id)}/estado", {"nEstadoPedidoFK": 2})
+                return True, "Pedido aprobado via API."
+            except Exception:
+                pass
+
         if not self.db.ensure_connected():
             return False, "No se puede cargar la base de datos."
         return self._approve_order_in_database(order_id)
 
     def update_order_state(self, order_id, state_id):
+        # Use API if available
+        if _API:
+            try:
+                _API.put(f"/api/pedidos/{int(order_id)}/estado", {"nEstadoPedidoFK": int(state_id)})
+                return True, "Estado actualizado via API."
+            except Exception:
+                pass
+
         if not self.db.ensure_connected():
             return False, "No se puede cargar la base de datos."
 
@@ -161,6 +195,16 @@ class SaleModel:
         return self._update_order_state_in_database(order_id, target)
 
     def create_sale(self, product_id, quantity, customer):
+        if _API:
+            # Delegate order creation to backend API (public endpoint)
+            try:
+                ok, resp = _API.create_order(product_id, quantity, customer, self.store_id)
+                if ok:
+                    return True, "Venta registrada via API."
+                return False, f"Error API: {resp}"
+            except Exception as exc:
+                return False, f"Error API: {exc}"
+
         if not self.db.ensure_connected():
             return False, "No se puede cargar la base de datos."
 

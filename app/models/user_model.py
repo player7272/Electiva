@@ -140,6 +140,7 @@ class UserModel:
             "email": row.get("cIdentificacion") or "",
             "role": "worker",
             "role_label": row.get("cRolNombre") or "Trabajador",
+            "role_id": row.get("nRolFK"),
         }
 
     @staticmethod
